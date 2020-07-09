@@ -3,6 +3,7 @@ body{
     padding: 20px 60px;
 }
 a {
+    /*remove the weired default color and underline of all the "a" tags, since we'll only use "a" tags as links*/
     text-decoration: none;
     color:black;
 }
