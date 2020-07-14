@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
-import {ReactComponent as Logo} from '../../assets/crown.svg';
+import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
-
+//currentUser comes from reducer
 const Header = ({ currentUser }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
@@ -23,14 +23,14 @@ const Header = ({ currentUser }) => (
             </Link>
             {
                 currentUser ?
-                    <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+                    (<div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>)
                     :
-                    <Link className='option' to='/signin'>SIGN IN</Link>
+                    (<Link className='option' to='/signin'>SIGN IN</Link>)
             }
         </div>
     </div>
 );
-//this state would be the rootReducer
+//this "state" comes from rootReducer, from combinedReducer(to be specific)
 const mapStateToProps = state => ({
     currentUser: state.user.currentUser
 })
