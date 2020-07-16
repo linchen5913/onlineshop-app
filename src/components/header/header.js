@@ -40,6 +40,7 @@ const Header = ({ currentUser,hidden }) => (
     </div>
 );
 //this "state" comes from combinedReducer(to be specific)
+//createStructuredSelector could combine all the Selector you're inputting
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
     hidden: selectCartHidden
