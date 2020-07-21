@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import CustomButton from '../custom-button/custom-button';
 import { addItem } from '../../redux/cart/cart.actions';
+
 import './collection-item.styles.scss';
 
 const mapDispatchToProps = dispatch => ({
@@ -22,7 +24,7 @@ const CollectionItem = ({ item, addItem }) => {
                 <span className='name'>{name}</span>
                 <span className='price'>{price}</span>
             </div>
-            <CustomButton inverted onClick={() => addItem(item)}>Add To Cart</CustomButton>
+            <CustomButton className='custom-button' inverted onClick={() => addItem(item)}>Add To Cart</CustomButton>
         </div>
     )
 }
