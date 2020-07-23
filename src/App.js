@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route,Redirect } from 'react-router-dom'; 
 import { connect } from 'react-redux';
 
@@ -20,22 +20,11 @@ import { checkUserSession } from './redux/user/user.actions';
 
 
 
-class App extends React.Component{
+const App = ({ checkUserSession,currentUser }) => {
+  useEffect(() => {
+    checkUserSession()
+  },[checkUserSession])
 
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { checkUserSession } = this.props;
-    checkUserSession();
-  }
-
-  componentWillUnmount() {
-    /* auth.onAuthStateChanged is a listener, so we don't call it directly
-    and after we assign it to this.unsubscribeFromAuth, the return value of auth.onAuthStateChanged is actually a method
-    called firebase.Unsubscribe, that's why we call it in componentWillUnmount to clean up the memory*/
-    this.unsubscribeFromAuth();
-  }
-  render(){
     return (
       <div>
         <Header />
@@ -47,7 +36,7 @@ class App extends React.Component{
             exact
             path='/signin'
             render={() =>
-              this.props.currentUser ? (
+              currentUser ? (
                 <Redirect to='/' />
               ) : (
                   <SignInAndSignUpPage />
@@ -57,7 +46,6 @@ class App extends React.Component{
         </Switch>
       </div>
     );
-    }
   }
 
 const mapStateToProps = createStructuredSelector({
