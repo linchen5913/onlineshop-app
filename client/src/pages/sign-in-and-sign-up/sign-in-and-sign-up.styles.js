@@ -10,6 +10,7 @@ export const SignInAndSignOutContainer = styled.div`
     flex-direction: column;
     width: unset;
     align-items: center;
+    padding:20px;
 
       > *:first-child {
       margin-bottom: 50px;
