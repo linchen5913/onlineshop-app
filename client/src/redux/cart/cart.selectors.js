@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-//input selector ; output selector
+//there are two types of selectors: input selector and output selector
 
 //input selector
 const selectCart = state => state.cart;

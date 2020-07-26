@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import {
   MenuItemContainer,
   BackgroundImageContainer,
@@ -7,19 +9,26 @@ import {
   ContentSubtitle
 } from './menu-item.styles';
 //withRouter is a HOC,we first import it and then wrap the current component in it
-import { withRouter } from 'react-router-dom';
 
 //because this MenuItem component is going to be put in the <Route />
 //so it could get access to the match & history properties
-const MenuItem = ({ title, imageUrl, size, history, match, linkUrl }) => (
+export const MenuItem = ({
+  title,
+  imageUrl,
+  size,
+  history,
+  match,
+  linkUrl
+}) => (
   <MenuItemContainer
     size={size}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <BackgroundImageContainer
-      imageUrl={imageUrl}
+        imageUrl={imageUrl}
+        className='background-image'
     />
-    <ContentContainer>
+    <ContentContainer className='content'>
       <ContentTitle>{title.toUpperCase()}</ContentTitle>
       <ContentSubtitle>SHOP NOW</ContentSubtitle>
     </ContentContainer>
