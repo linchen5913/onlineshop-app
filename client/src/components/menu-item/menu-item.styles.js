@@ -51,6 +51,11 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+
+    @media screen and (max-width: 300px) {
+    height: 20%;
+    width: 30%;
+  }
 `;
 
 export const ContentTitle = styled.span`
